@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhuvaneswari's Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary': '#3B82F6', // Blue-500
+                        'secondary': '#60A5FA', // Blue-400
+                        'dark-bg': '#1F2937', // Gray-800
+                        'dark-card': '#374151', // Gray-700
+                        'light-text': '#F9FAFB', // Gray-50
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .section {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+        }
+        .card {
+            background-color: var(--tw-colors-dark-card);
+            border-radius: 0.75rem; /* rounded-xl */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-xl */
+            transition: transform 0.3s ease-in-out;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #3B82F6, #60A5FA);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .cta-button {
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+    </style>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="font-sans text-light-text bg-dark-bg leading-relaxed">
+
+    <!-- Header & Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-dark-card bg-opacity-95 backdrop-blur-sm shadow-sm py-4">
+        <nav class="container mx-auto px-6 flex justify-between items-center">
+            <a href="#hero" class="text-2xl font-bold gradient-text">Bhuvaneswari Sriram</a>
+            <div class="hidden md:flex space-x-6">
+                <a href="#about" class="text-gray-400 hover:text-primary transition-colors">About</a>
+                <a href="#experience" class="text-gray-400 hover:text-primary transition-colors">Experience</a>
+                <a href="#skills" class="text-gray-400 hover:text-primary transition-colors">Skills</a>
+                <a href="#projects" class="text-gray-400 hover:text-primary transition-colors">Projects</a>
+                <a href="#contact" class="text-gray-400 hover:text-primary transition-colors">Contact</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                <svg class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-dark-card z-40 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col items-center justify-center space-y-8">
+        <button id="close-menu-button" class="absolute top-4 right-4 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+            <svg class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        <a href="#about" class="text-2xl font-bold text-light-text hover:text-primary transition-colors" onclick="closeMobileMenu()">About</a>
+        <a href="#experience" class="text-2xl font-bold text-light-text hover:text-primary transition-colors" onclick="closeMobileMenu()">Experience</a>
+        <a href="#skills" class="text-2xl font-bold text-light-text hover:text-primary transition-colors" onclick="closeMobileMenu()">Skills</a>
+        <a href="#projects" class="text-2xl font-bold text-light-text hover:text-primary transition-colors" onclick="closeMobileMenu()">Projects</a>
+        <a href="#contact" class="text-2xl font-bold text-light-text hover:text-primary transition-colors" onclick="closeMobileMenu()">Contact</a>
+    </div>
+
+    <main class="mt-[72px]">
+        <!-- Hero Section -->
+        <section id="hero" class="section h-[calc(100vh-72px)] flex items-center justify-center text-center bg-dark-bg">
+            <div class="max-w-4xl px-6">
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-light-text">
+                    Hello, I'm <span class="gradient-text">Bhuvaneswari Sriram</span>
+                </h1>
+                <p class="mt-4 text-xl sm:text-2xl text-gray-400">
+                    A passionate and results-driven Full-Stack Web Developer.
+                </p>
+                <div class="mt-8 flex justify-center space-x-4">
+                    <a href="#projects" class="cta-button inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-primary hover:bg-blue-600 transition">
+                        View My Work
+                    </a>
+                    <a href="#contact" class="cta-button inline-flex items-center justify-center px-6 py-3 border border-gray-600 text-base font-medium rounded-full shadow-sm text-primary bg-dark-card hover:bg-gray-700 transition">
+                        Get In Touch
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section bg-dark-card">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-light-text mb-4">About Me</h2>
+                    <p class="text-gray-400 text-lg leading-relaxed">
+                        A passionate and results-driven Full-Stack Web Developer with a proven ability to transform ideas into robust, user-friendly digital solutions. Adept at building end-to-end web applications and creating professional websites with a focus on clean, reusable code and timely project delivery. Skilled in automating business processes and committed to a collaborative approach to help businesses establish a powerful and effective online presence.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Professional Experience Section -->
+        <section id="experience" class="section bg-dark-bg">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto text-center mb-12">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-light-text mb-4">Professional Experience</h2>
+                    <p class="text-gray-400 text-lg">
+                        Highlights of my work and key accomplishments on various projects.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <!-- Experience 1 -->
+                    <div class="card p-8">
+                        <h3 class="text-2xl font-bold text-light-text mb-2">Task Tracker</h3>
+                        <p class="text-primary font-semibold mb-4">Lead Developer</p>
+                        <p class="text-gray-400 mb-4">A custom-built web application designed to streamline project management for small to medium-sized teams.</p>
+                        <ul class="list-disc list-inside space-y-2 text-gray-400">
+                            <li>Developed a seamless, intuitive user experience from concept to deployment.</li>
+                            <li>Engineered a full-stack solution to handle complex data management and task-tracking logic.</li>
+                            <li>Implemented key features that significantly improved user workflow and project oversight.</li>
+                        </ul>
+                    </div>
+                    <!-- Experience 2 -->
+                    <div class="card p-8">
+                        <h3 class="text-2xl font-bold text-light-text mb-2">Acreland.in</h3>
+                        <p class="text-primary font-semibold mb-4">Web Developer</p>
+                        <p class="text-gray-400 mb-4">A professional, fully responsive website created to showcase a client's specific business services and establish their online brand.</p>
+                        <ul class="list-disc list-inside space-y-2 text-gray-400">
+                            <li>Translated client business needs into a professional, engaging website design.</li>
+                            <li>Developed a clean and maintainable codebase using modern HTML and CSS standards.</li>
+                            <li>Successfully managed the end-to-end project lifecycle from initial design to final launch.</li>
+                        </ul>
+                    </div>
+                    <!-- Experience 3 -->
+                    <div class="card p-8 md:col-span-2">
+                        <h3 class="text-2xl font-bold text-light-text mb-2">Automated Client Communication System</h3>
+                        <p class="text-primary font-semibold mb-4">Automation & Scripting Specialist</p>
+                        <p class="text-gray-400 mb-4">A custom Google App Script solution that automates client communication based on data updates in a Google Sheet.</p>
+                        <ul class="list-disc list-inside space-y-2 text-gray-400">
+                            <li>Authored a script to automatically send "work in progress" and "work completed" emails, reducing manual effort.</li>
+                            <li>Streamlined a key business process, enhancing client communication and improving efficiency.</li>
+                            <li>Ensured the script was robust and reliable, providing a hands-off solution for the client.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills & Education Section -->
+        <section id="skills" class="section bg-dark-card">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto text-center mb-12">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-light-text mb-4">Skills & Education</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <!-- Skills Section -->
+                    <div class="card p-8">
+                        <h3 class="text-2xl font-bold text-light-text mb-4">Core Competencies</h3>
+                        <ul class="space-y-4 text-gray-400">
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-code text-primary mt-1 mr-3 text-lg"></i>
+                                <div>
+                                    <span class="font-semibold text-light-text">Full-Stack Development:</span> HTML5, CSS3, JavaScript, PHP, Typescript, Tailwind CSS, React.
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-database text-primary mt-1 mr-3 text-lg"></i>
+                                <div>
+                                    <span class="font-semibold text-light-text">Back-End Expertise:</span> Database Integration (Supabase, SQL), PostgreSQL.
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-paintbrush text-primary mt-1 mr-3 text-lg"></i>
+                                <div>
+                                    <span class="font-semibold text-light-text">Front-End Expertise:</span> Responsive Design, User Interface (UI) Development, UI/UX Principles.
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-gears text-primary mt-1 mr-3 text-lg"></i>
+                                <div>
+                                    <span class="font-semibold text-light-text">Tools & Platforms:</span> Google App Script, Google Sheets, Version Control (Git), Supabase.
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-clipboard-list text-primary mt-1 mr-3 text-lg"></i>
+                                <div>
+                                    <span class="font-semibold text-light-text">Project Management:</span> Agile Methodologies, Client Communication, Requirement Gathering.
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Education Section -->
+                    <div class="card p-8">
+                        <h3 class="text-2xl font-bold text-light-text mb-4">Education</h3>
+                        <div class="space-y-2">
+                            <p class="text-light-text font-semibold text-lg">Bachelor of Engineering</p>
+                            <p class="text-gray-400">Sri Sairam Engineering College</p>
+                            <p class="text-gray-400">Passed out 2011</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section bg-dark-bg">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto text-center mb-12">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-light-text mb-4">Project Highlights</h2>
+                    <p class="text-gray-400 text-lg">
+                        View my work in action and explore the code.
+                    </p>
+                </div>
+                
+                <div id="project-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project cards will be injected here by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section bg-dark-card">
+            <div class="container mx-auto px-6">
+                <div class="max-w-xl mx-auto card p-8 sm:p-12">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-light-text text-center mb-6">Get In Touch</h2>
+                    <form id="contact-form" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-400">Name</label>
+                            <input type="text" id="name" name="name" class="mt-1 block w-full rounded-md border-gray-600 bg-gray-700 text-white shadow-sm focus:border-primary focus:ring-primary" required>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-400">Email</label>
+                            <input type="email" id="email" name="email" class="mt-1 block w-full rounded-md border-gray-600 bg-gray-700 text-white shadow-sm focus:border-primary focus:ring-primary" required>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-400">Message</label>
+                            <textarea id="message" name="message" rows="4" class="mt-1 block w-full rounded-md border-gray-600 bg-gray-700 text-white shadow-sm focus:border-primary focus:ring-primary" required></textarea>
+                        </div>
+                        <div class="flex justify-center">
+                            <button type="submit" class="cta-button w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-primary hover:bg-blue-600 transition">
+                                Send Message
+                            </button>
+                        </div>
+                        <p id="form-message" class="text-center font-medium mt-4"></p>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2024 Bhuvaneswari Sriram. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const projects = [
+                {
+                    title: "Task Tracker",
+                    image: "https://placehold.co/400x300/3B82F6/FFFFFF?text=Task+Tracker",
+                    liveLink: null,
+                    repoLink: null
+                },
+                {
+                    title: "Acreland.in",
+                    image: "https://placehold.co/400x300/3B82F6/FFFFFF?text=Acreland.in",
+                    liveLink: null,
+                    repoLink: null
+                },
+                {
+                    title: "Automated Client Communication System",
+                    image: "https://placehold.co/400x300/3B82F6/FFFFFF?text=Automation+System",
+                    liveLink: null,
+                    repoLink: null
+                }
+            ];
+
+            const projectContainer = document.getElementById('project-container');
+            projects.forEach(project => {
+                const projectCard = document.createElement('div');
+                projectCard.className = 'card p-6 flex flex-col items-center text-center';
+
+                const linkElements = [];
+                
+                // Live Demo Check
+                if (project.liveLink && project.liveLink.trim() !== '') {
+                    linkElements.push(`<a href="${project.liveLink}" class="text-primary hover:text-blue-400 font-medium transition" target="_blank">Live Demo</a>`);
+                } else {
+                    linkElements.push(`<span class="text-gray-400 font-medium">Demo on request</span>`);
+                }
+
+                // Separator
+                linkElements.push(`<span>&bull;</span>`);
+                
+                // GitHub Repo Check
+                if (project.repoLink && project.repoLink.trim() !== '') {
+                    linkElements.push(`<a href="${project.repoLink}" class="text-primary hover:text-blue-400 font-medium transition" target="_blank">GitHub Repo</a>`);
+                } else {
+                    linkElements.push(`<span class="text-gray-400 font-medium">Private Repo</span>`);
+                }
+
+                projectCard.innerHTML = `
+                    <img src="${project.image}" alt="Project Image" class="rounded-xl mb-4 w-full h-auto object-cover">
+                    <h3 class="text-xl font-bold text-light-text mb-2">${project.title}</h3>
+                    <div class="flex space-x-4 mt-auto">
+                        ${linkElements.join('')}
+                    </div>
+                `;
+                projectContainer.appendChild(projectCard);
+            });
+
+            const contactForm = document.getElementById('contact-form');
+            const formMessage = document.getElementById('form-message');
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                formMessage.textContent = 'Message sent successfully! I will get back to you soon.';
+                formMessage.classList.add('text-green-400');
+                formMessage.classList.remove('text-red-400');
+                contactForm.reset();
+            });
+
+            // Mobile menu functionality
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const closeMenuButton = document.getElementById('close-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.remove('translate-x-full');
+            });
+
+            closeMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.add('translate-x-full');
+            });
+
+            function closeMobileMenu() {
+                mobileMenu.classList.add('translate-x-full');
+            }
+
+            // Expose function to the global scope for onclick attributes
+            window.closeMobileMenu = closeMobileMenu;
+        });
+    </script>
+
+</body>
+</html>
